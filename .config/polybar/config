@@ -1,0 +1,176 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;==========================================================
+
+[colors]
+background = #10072b
+background-alt = #10072b
+foreground = #f0446f
+foreground-alt = #f0446f
+primary = #1d3f4f
+secondary = #f0446f
+
+[bar/simplebar]
+;monitor = ${env:MONITOR:HDMI-1}
+width = 100%
+height = 35
+bottom = false
+;offset-x = 1%
+;offset-y = 5%
+radius = 0.5
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2
+
+border-size = 5
+
+padding-left = 4
+padding-right = 4
+
+module-margin-left = 2
+module-margin-right = 3
+
+font-0 = fixed:pixelsize=10;1
+font-1 ="Alpaca Scarlett Demo";0
+font-2 =Font Awesome 5 Brands
+font-3 =Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid:pizelsize=8
+
+modules-left = i3
+modules-right = network battery cpu temperature
+
+;tray-position = center
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+
+
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = %name%
+label-focused-underline= ${colors.secondary} 
+label-focused-padding = 2
+
+label-unfocused = %name%
+label-unfocused-padding = 2
+
+
+[module/battery]
+type = internal/battery
+format-discharging = <ramp-capacity> <label-discharging>
+label-full = Fully Charged
+full-at = 90
+label-discharging = Discharging: %percentage%% %time%
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+
+format-charghing = <animation-charging> <label-charging>
+
+label-charging = Charging: %percentage%%
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 500
+
+[module/network]
+type = internal/network
+interface = wlp1s0
+interval = 3.0
+format-connected =  <label-connected>
+label-connected =  %essid%
+
+format-disconnected = <label-disconnected>
+label-disconnected = " disconnected"
+
+
+;[module/date]
+;type = internal/date
+;interval = 1
+
+;date = "%d-%m-%Y"
+;date-alt = %d-%m-%Y
+;time = %H:%M
+;time-alt = %H:%M:%S
+
+;label =  %date%   %time%
+
+
+[module/pulseaudio]
+type = internal/pulseaudio
+format-volume = <ramp-volume> <label-volume>
+sink=alsa_output.pci-0000_00_1f.3.analog-stereo
+label-volume = %percentage%
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+label-muted =  muted
+interval = 5
+
+[module/cpu]
+type = internal/cpu
+interval = 0.5
+format = <label> <ramp-coreload> 
+label = CPU %percentage%% 
+
+; Spacing between individual per-core ramps
+ramp-coreload-spacing = 1
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
+
+[module/temperature]
+type = internal/temperature
+interval = 0.5
+thermal-zone = 0
+format = <ramp> <label>
+label = TEMP %temperature-c%
+ramp-0 = A
+ramp-1 = B
+ramp-2 = C
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+; vim:ft=dosini
