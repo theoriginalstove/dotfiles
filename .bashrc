@@ -16,6 +16,6 @@ source `which activate.sh`
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
-. /home/steven/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
+. /home/{user}/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
 
 export TERM="screen-256color"
