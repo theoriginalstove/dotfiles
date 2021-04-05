@@ -39,12 +39,15 @@ Plug 'kkvh/vim-docker-tools'
 
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'airblade/vim-gitgutter'
+
+
 " Themes 
 Plug 'drewtempelmeyer/palenight.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 
 Plug 'erikzaadi/vim-ansible-yaml'
-
 
 Plug 'neoclide/coc.nvim', {'branch':'release'}
 
