@@ -42,11 +42,11 @@ Plug 'airblade/vim-gitgutter'
 " Themes 
 Plug 'drewtempelmeyer/palenight.vim'
 
-" LSP 
-Plug 'neovim/nvim-lspconfig'
 
 Plug 'erikzaadi/vim-ansible-yaml'
 
+
+Plug 'neoclide/coc.nvim', {'branch':'release'}
 
 " telescope requirements..
 
@@ -54,10 +54,6 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-
-
-Plug 'davidhalter/jedi-vim'
-
 "
 " Syntax: html
 Plug 'othree/html5.vim'
