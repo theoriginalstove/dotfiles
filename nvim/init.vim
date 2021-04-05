@@ -1,31 +1,4 @@
 syntax on
-
-set exrc
-set guicursor=a:block
-set relativenumber
-set nohlsearch
-set tabstop=4 softtabstop=4
-set shiftwidth=4
-set expandtab
-set smartindent
-set nu 
-set nowrap 
-set noswapfile
-set nobackup
-set undodir=~/.vim/undodir
-set undofile
-set termguicolors
-set scrolloff=8
-set incsearch
-set signcolumn=yes
-set encoding=UTF-8
-
-set colorcolumn=80
-highlight ColorColumn ctermbg=0 guibg=lightgrey
-
-" Give more space for displaying messages.
-set cmdheight=2
-
 " Don't 
 call plug#begin('~/.vim/plugged')
 
@@ -58,6 +31,9 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 "
+
+Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
+
 " Syntax: html
 Plug 'othree/html5.vim'
 
@@ -97,3 +73,9 @@ augroup TheOriginalStove
     autocmd!
     autocmd FileType yaml,yml setlocal ts=2 sts=2 sw=2 expandtab
 augroup END
+
+"Split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>

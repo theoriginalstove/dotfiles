@@ -19,6 +19,8 @@ set scrolloff=8
 set incsearch
 set signcolumn=yes
 set encoding=UTF-8
+set splitright
+set splitbelow
 
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey

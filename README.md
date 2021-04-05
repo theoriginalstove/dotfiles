@@ -1,12 +1,8 @@
-# dotfiles
+# My dotfiles
 
-- **WM**: i3-gaps
-- **Compositor**: compton
-- **Terminal**: Konsole
-- **Bar**: polybar
-- **Clock**: tty-clock
-- **Other**: Powerline status bars for Bash and Vim shells.
+For nvim install on *nix/OSX/WSL2:
+    1. cd into dotfiles/nvim/
+    2. Execute install.sh
 
-![Screenshot of desktop with terminals and
-clock](./screenshots/screenshot3.png?raw=true "Screenshot of desktop")
-
+TODO:
+Create install script for Windows - non WSL
