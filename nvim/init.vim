@@ -43,8 +43,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'drewtempelmeyer/palenight.vim'
 
 " LSP 
-Plug 'prabirshrestha/vim-lsp'
+Plug 'neovim/nvim-lspconfig'
 
+Plug 'erikzaadi/vim-ansible-yaml'
 
 
 " telescope requirements..
@@ -54,9 +55,8 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
-" Plugins for web development
-Plug 'neoclide/coc.nvim', { 'branch':'release'}
 
+Plug 'davidhalter/jedi-vim'
 
 "
 " Syntax: html
@@ -66,7 +66,7 @@ Plug 'othree/html5.vim'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 
-" " Syntax: scss
+" Syntax: scss
 Plug 'cakebaker/scss-syntax.vim'
 
 " Syntax: Vue
@@ -82,9 +82,19 @@ call plug#end()
 
 let mapleader = " "
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
+nnoremap <leader>cm :NERDTreeToggle<CR>
+
 autocmd VimEnter * NERDTree | wincmd p
 set background=dark
 colorscheme palenight
 
 
+set completeopt=menuone,noinsert,noselect
+let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
+" Language Server Configs
+" lua require('lspconfig').pyls.setup{ on_attach=require'completion'.on_attach }
+augroup TheOriginalStove
+    autocmd!
+    autocmd FileType yaml,yml setlocal ts=2 sts=2 sw=2 expandtab
+augroup END
