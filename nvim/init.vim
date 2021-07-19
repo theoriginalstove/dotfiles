@@ -1,5 +1,8 @@
 syntax on
 " Don't 
+"
+"
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': 'TSUpdate' }
@@ -16,6 +19,7 @@ Plug 'airblade/vim-gitgutter'
 
 " Themes 
 Plug 'drewtempelmeyer/palenight.vim'
+Plug 'arcticicestudio/nord-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -61,7 +65,7 @@ nnoremap <leader>cm :NERDTreeToggle<CR>
 
 autocmd VimEnter * NERDTree | wincmd p
 set background=dark
-colorscheme palenight
+colorscheme nord
 
 
 set completeopt=menuone,noinsert,noselect

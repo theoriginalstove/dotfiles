@@ -6,3 +6,4 @@ For nvim install on *nix/OSX/WSL2:
 
 TODO:
 Create install script for Windows - non WSL
+Improve script to create alacritty, compton, and polybar configs
