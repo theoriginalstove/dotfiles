@@ -191,4 +191,4 @@ gaps inner 20
 
 
 exec_always feh --bg-center $HOME/Pictures/wallpaper.jpg
-exec always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
