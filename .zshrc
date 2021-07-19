@@ -102,3 +102,6 @@ source $ZSH/oh-my-zsh.sh
 alias vim="nvim"
 alias ll="ls -laF"
 
+# To use gpg
+export GPG_TTY=$(tty)
+gpgconf --launch gpg-agent
