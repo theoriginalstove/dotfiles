@@ -26,7 +26,7 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'erikzaadi/vim-ansible-yaml'
 
-Plug 'neoclide/coc.nvim', {'branch':'release'}
+" Plug 'neoclide/coc.nvim', {'branch':'release'}
 
 " telescope requirements..
 
@@ -34,7 +34,7 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-"
+Plug 'neovim/nvim-lspconfig'
 
 Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
 
@@ -89,3 +89,7 @@ tnoremap <C-H> <C-\><C-N><C-W><C-H>
 tnoremap <C-J> <C-\><C-N><C-W><C-J>
 tnoremap <C-K> <C-\><C-N><C-W><C-K>
 tnoremap <C-L> <C-\><C-N><C-W><C-L>
+
+"improve tab experience for CoC
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"

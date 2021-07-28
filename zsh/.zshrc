@@ -101,6 +101,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim="nvim"
 alias ll="ls -laF"
+alias spotify="flatpak run com.spotify.Client"
 
 # To use gpg
 export GPG_TTY=$(tty)
