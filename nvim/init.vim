@@ -24,10 +24,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 
-Plug 'erikzaadi/vim-ansible-yaml'
-
-" Plug 'neoclide/coc.nvim', {'branch':'release'}
-
 " telescope requirements..
 
 Plug 'nvim-lua/popup.nvim'
@@ -37,24 +33,6 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'neovim/nvim-lspconfig'
 
 Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
-
-" Syntax: html
-Plug 'othree/html5.vim'
-
-" Syntax: Javascript
-Plug 'yuezk/vim-js'
-Plug 'maxmellon/vim-jsx-pretty'
-
-" Syntax: scss
-Plug 'cakebaker/scss-syntax.vim'
-
-" Syntax: Vue
-Plug 'posva/vim-vue'
-
-Plug 'prettier/vim-prettier', { 
-    \ 'do': 'yarn install', 
-    \ 'branch': 'release/0.x',
-    \ 'for' : ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] } 
 
 call plug#end()
 
@@ -90,6 +68,3 @@ tnoremap <C-J> <C-\><C-N><C-W><C-J>
 tnoremap <C-K> <C-\><C-N><C-W><C-K>
 tnoremap <C-L> <C-\><C-N><C-W><C-L>
 
-"improve tab experience for CoC
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
