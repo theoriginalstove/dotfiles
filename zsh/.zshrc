@@ -106,3 +106,7 @@ alias spotify="flatpak run com.spotify.Client"
 # To use gpg
 export GPG_TTY=$(tty)
 gpgconf --launch gpg-agent
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
