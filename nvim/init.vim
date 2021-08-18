@@ -11,7 +11,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
-Plug 'kabouzeid/nvim-lspinstall'
+"Plug 'kabouzeid/nvim-lspinstall'
 Plug 'windwp/nvim-autopairs'
 
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': 'TSUpdate' }
@@ -67,7 +67,7 @@ let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
 augroup TheOriginalStove
     autocmd!
-    autocmd FileType yaml,yml setlocal ts=2 sts=2 sw=2 expandtab
+    autocmd FileType yaml,yml,js,vue,css,scss setlocal ts=2 sts=2 sw=2 expandtab
 augroup END
 
 "lua require("theprimeagen")
