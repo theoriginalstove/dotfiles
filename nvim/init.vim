@@ -33,7 +33,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
 
-
 " telescope requirements..
 
 Plug 'nvim-lua/popup.nvim'
@@ -46,6 +45,8 @@ Plug 'nvim-telescope/telescope.nvim'
 " For BSPWM and SXHKD
 Plug 'kovetskiy/sxhkd-vim'
 
+" All hail the great Tpope
+Plug 'tpope/vim-surround'
 
 call plug#end()
 
@@ -55,34 +56,15 @@ nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim
 nnoremap <leader>cm :NERDTreeToggle<CR>
 
 "autocmd VimEnter * NERDTree | wincmd p
+set termguicolors
 set background=dark
-"colorscheme nord
-
+colorscheme palenight 
 
 set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
-
-" Language Server Configs
-"lua require('lspconfig').pyls.setup{ on_attach=require'completion'.on_attach }
 
 augroup TheOriginalStove
     autocmd!
     autocmd FileType yaml,yml,js,vue,css,scss setlocal ts=2 sts=2 sw=2 expandtab
 augroup END
-
-"lua require("theprimeagen")
-
-colorscheme gruvbox
-
-""Split navigation
-"nnoremap <C-J> <C-W><C-J>
-"nnoremap <C-K> <C-W><C-K>
-"nnoremap <C-L> <C-W><C-L>
-"nnoremap <C-H> <C-W><C-H>
-"
-""nvim terminal escape
-"tnoremap <C-H> <C-\><C-N><C-W><C-H>
-"tnoremap <C-J> <C-\><C-N><C-W><C-J>
-"tnoremap <C-K> <C-\><C-N><C-W><C-K>
-"tnoremap <C-L> <C-\><C-N><C-W><C-L>
 

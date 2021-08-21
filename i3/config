@@ -151,7 +151,7 @@ bindsym $mod+Shift+e mode "exit: [l]ogout, [r]eboot, [s]hutdown"
 mode "exit: [l]ogout, [r]eboot, [s]hutdown" {
     bindsym l exec i3-msg exit
     bindsym r exec systemctl reboot
-    bindsym s exec systemctl shutdown -kP
+    bindsym s exec poweroff
 
     bindsym Escape mode "default"
     bindsym Return mode "default"

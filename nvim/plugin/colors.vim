@@ -26,6 +26,6 @@ fun! ColorMyPencils()
     highlight qfFileName guifg=#aed75f
     hi TelescopeBorder guifg=#5eacd
 endfun
-call ColorMyPencils()
+"call ColorMyPencils()
 
 
