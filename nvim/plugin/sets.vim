@@ -22,8 +22,8 @@ set encoding=UTF-8
 set splitright
 set splitbelow
 
-set colorcolumn=80
-highlight ColorColumn ctermbg=0 guibg=lightgrey
+set colorcolumn=0
+highlight ColorColumn ctermbg=0 guibg=yellow
 
 " Give more space for displaying messages.
 set cmdheight=2

@@ -11,18 +11,28 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'kabouzeid/nvim-lspinstall'
 Plug 'windwp/nvim-autopairs'
-
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': 'TSUpdate' }
 Plug 'nvim-treesitter/playground'
+Plug 'gpanders/editorconfig.nvim'
+
+" For .vue file syntax highlighting
+" Treestitter only does syntax highlighting for vue in js files. 
+Plug 'posva/vim-vue'
+
+"For NERDtree file peeking
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+"To undo and redo stuff
 Plug 'mbbill/undotree'
 Plug 'kkvh/vim-docker-tools'
 
-Plug 'OmniSharp/omnisharp-vim'
+"Plug 'OmniSharp/omnisharp-vim'
 Plug 'airblade/vim-gitgutter'
 
 
@@ -32,6 +42,8 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
+Plug 'tjdevries/colorbuddy.nvim'
+Plug 'Yagua/nebulous.nvim'
 
 
 " telescope requirements..
@@ -46,17 +58,20 @@ Plug 'nvim-telescope/telescope.nvim'
 " For BSPWM and SXHKD
 Plug 'kovetskiy/sxhkd-vim'
 
+" Vim Visualdebugger for C#, Go, Python, JS,
+Plug 'mfussenegger/nvim-dap'
 
+" For writing README's and Documentation
+"Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 call plug#end()
 
 
 let mapleader = " "
-nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
-nnoremap <leader>cm :NERDTreeToggle<CR>
 
-"autocmd VimEnter * NERDTree | wincmd p
+
+set termguicolors
 set background=dark
-"colorscheme nord
+
 
 
 set completeopt=menuone,noinsert,noselect
@@ -68,21 +83,9 @@ let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 augroup TheOriginalStove
     autocmd!
     autocmd FileType yaml,yml setlocal ts=2 sts=2 sw=2 expandtab
+    autocmd FileType vue,js,ts,json setlocal ts=4 sts=4 sw=4 expandtab
 augroup END
 
-"lua require("theprimeagen")
 
-colorscheme gruvbox
-
-""Split navigation
-"nnoremap <C-J> <C-W><C-J>
-"nnoremap <C-K> <C-W><C-K>
-"nnoremap <C-L> <C-W><C-L>
-"nnoremap <C-H> <C-W><C-H>
-"
-""nvim terminal escape
-"tnoremap <C-H> <C-\><C-N><C-W><C-H>
-"tnoremap <C-J> <C-\><C-N><C-W><C-J>
-"tnoremap <C-K> <C-\><C-N><C-W><C-K>
-"tnoremap <C-L> <C-\><C-N><C-W><C-L>
-
+lua require("turts") 
+lua require("nebulous").setup { variant = "fullmoon" }

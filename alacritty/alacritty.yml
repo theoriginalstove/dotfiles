@@ -849,38 +849,39 @@ shell:
   #   - Trace
   #log_level: Warn
 
-  # Print all received window events.
-  #print_events: false
-# Colors (Gruvbox dark)
-colors:
-  # Default colors
-  primary:
-    # hard contrast: background = '0x1d2021'
-    background: '0x282828'
-    # soft contrast: background = '0x32302f'
-    foreground: '0xebdbb2'
+#  # Print all received window events.
+#  #print_events: false
+## Colors (Gruvbox dark)
+#colors:
+#  # Default colors
+#  primary:
+#    # hard contrast: background = '0x1d2021'
+#    background: '0x282828'
+#    # soft contrast: background = '0x32302f'
+#    foreground: '0xebdbb2'
+#
+#  # Normal colors
+#  normal:
+#    black:   '0x282828'
+#    red:     '0xcc241d'
+#    green:   '0x98971a'
+#    yellow:  '0xd79921'
+#    blue:    '0x458588'
+#    magenta: '0xb16286'
+#    cyan:    '0x689d6a'
+#    white:   '0xa89984'
+#
+#  # Bright colors
+#  bright:
+#    black:   '0x928374'
+#    red:     '0xfb4934'
+#    green:   '0xb8bb26'
+#    yellow:  '0xfabd2f'
+#    blue:    '0x83a598'
+#    magenta: '0xd3869b'
+#    cyan:    '0x8ec07c'
+#    white:   '0xebdbb2'
 
-  # Normal colors
-  normal:
-    black:   '0x282828'
-    red:     '0xcc241d'
-    green:   '0x98971a'
-    yellow:  '0xd79921'
-    blue:    '0x458588'
-    magenta: '0xb16286'
-    cyan:    '0x689d6a'
-    white:   '0xa89984'
-
-  # Bright colors
-  bright:
-    black:   '0x928374'
-    red:     '0xfb4934'
-    green:   '0xb8bb26'
-    yellow:  '0xfabd2f'
-    blue:    '0x83a598'
-    magenta: '0xd3869b'
-    cyan:    '0x8ec07c'
-    white:   '0xebdbb2'
 #colors:
 #  primary:
 #    background: '#2e3440'
@@ -929,3 +930,40 @@ colors:
 #    magenta: '#8c738c'
 #    cyan: '#6d96a5'
 #    white: '#aeb3bb'
+# Base16 Material Palenight 256
+colors:
+  primary:
+    background: '0x292d3e'
+    foreground: '0x959dcb'
+  # Colors the cursor will use if `custom_cursor_colors` is true
+  cursor:
+    text:   '0x292d3e'
+    cursor: '0x959dcb'
+  normal:
+    black:    '0x292d3e'
+    red:      '0xf07178' 
+    green:    '0xc3e88d'
+    yellow:   '0xffcb6b'
+    blue:     '0x82aaff'
+    magenta:  '0xc792ea'
+    cyan:     '0x89ddff'
+    white:    '0x959dcb'
+  
+# bright colors
+  bright:
+    black:    '0x676e95'
+    red:      '0xf07178' 
+    green:    '0xc3e88d'
+    yellow:   '0xffcb6b'
+    blue:     '0x82aaff'
+    magenta:  '0xc792ea'
+    cyan:     '0x89ddff'
+    white:    '0x959dcb'
+  
+    indexed_colors:
+      - { index: 16, color: '0xf78c6c' }
+      - { index: 17, color: '0xff5370' }
+      - { index: 18, color: '0x444267' }
+      - { index: 19, color: '0x32374d' }
+      - { index: 20, color: '0x8796b0' }
+      - { index: 21, color: '0x959dcb' }
