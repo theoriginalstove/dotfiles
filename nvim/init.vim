@@ -17,7 +17,6 @@ Plug 'kabouzeid/nvim-lspinstall'
 Plug 'windwp/nvim-autopairs'
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': 'TSUpdate' }
 Plug 'nvim-treesitter/playground'
-Plug 'gpanders/editorconfig.nvim'
 
 " For .vue file syntax highlighting
 " Treestitter only does syntax highlighting for vue in js files. 
@@ -60,6 +59,13 @@ Plug 'kovetskiy/sxhkd-vim'
 
 " Vim Visualdebugger for C#, Go, Python, JS,
 Plug 'mfussenegger/nvim-dap'
+
+" for Logstash configs
+Plug 'robbles/logstash.vim'
+
+" for LaTeX documents in vim
+Plug 'lervag/vimtex'
+
 
 " For writing README's and Documentation
 "Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
