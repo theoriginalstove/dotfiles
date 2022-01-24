@@ -56,9 +56,11 @@ nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim
 nnoremap <leader>cm :NERDTreeToggle<CR>
 
 "autocmd VimEnter * NERDTree | wincmd p
+colorscheme palenight 
+let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 set termguicolors
 set background=dark
-colorscheme palenight 
+set t_Co=256
 
 set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
