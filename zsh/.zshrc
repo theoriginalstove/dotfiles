@@ -102,6 +102,7 @@ source $ZSH/oh-my-zsh.sh
 alias vim="nvim"
 alias ll="ls -laF"
 alias spotify="flatpak run com.spotify.Client"
+alias tmux="TERM=xterm-256color tmux -2"
 
 # To use gpg
 export GPG_TTY=$(tty)
@@ -113,3 +114,5 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 export PATH="$HOME/.poetry/bin:$PATH"
 export PATH=${PATH}:"${HOME}/.local/bin"
+
+
