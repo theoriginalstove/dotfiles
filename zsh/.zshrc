@@ -120,3 +120,5 @@ eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/git_id_ed25519
 clear
 neofetch
+
+wsl.exe -d wsl-vpnkit service wsl-vpnkit start
