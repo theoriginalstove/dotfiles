@@ -8,7 +8,8 @@ export ZSH="/home/turts/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="fino"
+ZSH_THEME="gruvbox"
+SOLARIZED_THEME="dark"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -82,11 +83,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -101,7 +102,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim="nvim"
 alias ll="ls -laF"
-alias="podman -cgroup-manager cpgroupfs --event-logger file"
+alias docker="podman -cgroup-manager cpgroupfs --event-logger file"
 
 # To use gpg
 export GPG_TTY=$(tty)
@@ -111,13 +112,14 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 export GOROOT=/usr/local/go
-export GOPATH=$HOME/dev
+export GOPATH=$HOME
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
-export PATH=$PATH:$HOME/dev/bin
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/git_id_ed25519
+ssh-add ~/.ssh/github_id_ed25519
 clear
 neofetch
 
