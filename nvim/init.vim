@@ -1,5 +1,36 @@
-set wildmode=longest,list,full
-set wildmenu
+"======================================
+"general sets
+"======================================
+
+syntax on
+set mouse=a
+set exrc
+set guicursor=a:block
+set relativenumber
+set nohlsearch
+set tabstop=4 softtabstop=4
+set shiftwidth=4
+set expandtab
+set smartindent
+set nu 
+set nowrap 
+set noswapfile
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
+set termguicolors
+set scrolloff=8
+set incsearch
+set signcolumn=yes
+set encoding=UTF-8
+set splitright
+set splitbelow
+set colorcolumn=0
+
+highlight ColorColumn ctermbg=0 guibg=yellow
+" Give more space for displaying messages.
+" set cmdheight=2
+
 " Ignore Files
 set wildignore+=*.pyc
 set wildignore+=*_build/*
@@ -9,89 +40,49 @@ set wildignore+=**/.git/*
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-compe'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'kabouzeid/nvim-lspinstall'
-Plug 'windwp/nvim-autopairs'
-Plug 'nvim-treesitter/nvim-treesitter', { 'do': 'TSUpdate' }
-Plug 'nvim-treesitter/playground'
-
-" For .vue file syntax highlighting
-" Treestitter only does syntax highlighting for vue in js files. 
-Plug 'posva/vim-vue'
-
-"For NERDtree file peeking
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'airblade/vim-gitgutter'
 
 "To undo and redo stuff
 Plug 'mbbill/undotree'
-Plug 'kkvh/vim-docker-tools'
 
-"Plug 'OmniSharp/omnisharp-vim'
-Plug 'airblade/vim-gitgutter'
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'L3MON4D3/LuaSnip'
+Plug 'saadparwaiz1/cmp_luasnip'
 
-
-" Themes 
-Plug 'drewtempelmeyer/palenight.vim'
-Plug 'arcticicestudio/nord-vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
-Plug 'tjdevries/colorbuddy.nvim'
-Plug 'Yagua/nebulous.nvim'
 
-
-" telescope requirements..
-
-Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
-" Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins', 'for': 'python' }
+" Airline - Economy class
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
-" For BSPWM and SXHKD
-Plug 'kovetskiy/sxhkd-vim'
-
-" Vim Visualdebugger for C#, Go, Python, JS,
-Plug 'mfussenegger/nvim-dap'
-
-" for Logstash configs
-Plug 'robbles/logstash.vim'
-
-" for LaTeX documents in vim
-Plug 'lervag/vimtex'
-
-
-" For writing README's and Documentation
-"Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 call plug#end()
 
+colorscheme gruvbox
+let g:gruvbox_contrast_dark = 'medium'
 
-let mapleader = " "
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
+"nvim terminal escape
+tnoremap <C-H> <C-\><C-N><C-W><C-H>
+tnoremap <C-J> <C-\><C-N><C-W><C-J>
+tnoremap <C-K> <C-\><C-N><C-W><C-K>
+tnoremap <C-L> <C-\><C-N><C-W><C-L>
 
-set termguicolors
-set background=dark
+inoremap <C-]> <C-X><C-]>
 
-
-
-set completeopt=menuone,noinsert,noselect
-let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
-
-" Language Server Configs
-"lua require('lspconfig').pyls.setup{ on_attach=require'completion'.on_attach }
-
-augroup TheOriginalStove
-    autocmd!
-    autocmd FileType yaml,yml setlocal ts=2 sts=2 sw=2 expandtab
-    autocmd FileType vue,js,ts,json setlocal ts=4 sts=4 sw=4 expandtab
-augroup END
-
-
-lua require("turts") 
-lua require("nebulous").setup { variant = "fullmoon" }
+let mapleader  = " "
+lua require("turts")
