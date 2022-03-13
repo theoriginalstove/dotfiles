@@ -14,7 +14,7 @@ set noswapfile
 set nobackup
 set undodir=~/.vim/undodir
 set undofile
-set termguicolors
+" set termguicolors
 set scrolloff=8
 set incsearch
 set signcolumn=yes

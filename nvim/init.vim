@@ -48,6 +48,14 @@ Plug 'kovetskiy/sxhkd-vim'
 " All hail the great Tpope
 Plug 'tpope/vim-surround'
 
+" For LaTeX
+Plug 'lervag/vimtex'
+
+
+" Themes
+Plug 'rakr/vim-one'
+Plug 'dylanaraps/wal.vim'
+
 call plug#end()
 
 
@@ -58,7 +66,7 @@ nnoremap <leader>cm :NERDTreeToggle<CR>
 "autocmd VimEnter * NERDTree | wincmd p
 set termguicolors
 set background=dark
-colorscheme palenight 
+colorscheme one 
 
 set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
@@ -68,3 +76,6 @@ augroup TheOriginalStove
     autocmd FileType yaml,yml,js,vue,css,scss setlocal ts=2 sts=2 sw=2 expandtab
 augroup END
 
+let g:airline_theme='one'
+" for LaTeX
+let g:vimtex_view_method = 'zathura'

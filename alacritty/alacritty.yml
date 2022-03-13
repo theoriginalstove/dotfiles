@@ -46,8 +46,8 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 10
-    y: 10
+    x: 5
+    y: 5
 
   # Spread additional padding evenly around the terminal content.
   #dynamic_padding: false
@@ -112,7 +112,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: 'FiraCode Nerd Font Mono'
+    family: 'JetBrains Mono Nerd Font'
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
@@ -123,7 +123,7 @@ font:
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: 'FiraCode Nerd Font Mono'
+    family: 'JetBrains Mono Nerd Font'
 
     # The `style` can be specified to pick a specific face.
     style: Bold
@@ -134,7 +134,7 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: 'FiraCode Nerd Font Mono'
+    family: 'JetBrains Mono Nerd Font'
 
     # The `style` can be specified to pick a specific face.
     style: Italic
@@ -151,7 +151,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 12.0
+  size: 9.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
