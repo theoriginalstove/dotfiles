@@ -1,4 +1,4 @@
-require("turts._golsp")
+local lspkind = require('lspkind')
 local cmp = require'cmp'
 
 vim.opt.completeopt={'menu','menuone','noselect'}
@@ -21,11 +21,23 @@ cmp.setup({
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
     },
     sources = cmp.config.sources({
+        { name = 'nvim_lua' },
+
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
+        { name = 'path' },
     }, {
-        { name = 'buffer' },
-    })
+        { name = 'buffer', keyword_length = 4},
+    }),
+    formatting = {
+        format = lspkind.cmp_format({
+            mode = 'symbol_text',
+            maxwidth = 50,
+        }),
+    },
+    experimental = {
+        ghost_text = true
+    },
 })
 
 -- `/` cmdline setup

@@ -8,7 +8,7 @@ export ZSH="/home/turts/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="gruvbox"
+ZSH_THEME="gruv_magic"
 SOLARIZED_THEME="dark"
 
 # Set list of themes to pick from when loading at random
@@ -71,7 +71,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker vi-mode golang dotnet emoji-clock zsh-navigation-tools)
+plugins=(git docker vi-mode golang dotnet emoji-clock zsh-navigation-tools helm kubectl timer zsh-interactive-cd safe-paste colored-man-pages zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -101,9 +101,7 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim="nvim"
-alias ll="ls -laF"
-alias docker="podman -cgroup-manager cpgroupfs --event-logger file"
-
+alias ll="ls -laF --group-directories-first"
 # To use gpg
 export GPG_TTY=$(tty)
 gpgconf --launch gpg-agent
@@ -116,6 +114,7 @@ export GOPATH=$HOME
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export PATH=$PATH:$(yarn global bin)
 
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/git_id_ed25519
@@ -124,3 +123,19 @@ clear
 neofetch
 
 wsl.exe -d wsl-vpnkit service wsl-vpnkit start
+export TIMER_FORMAT='[%d]' 
+export TIMER_PRECISION=2
+# export DOCKER_SOCK="/mnt/wsl/shared-docker/docker.sock"
+# test -S "$DOCKER_SOCK" && export DOCKER_HOST="unix://$DOCKER_SOCK"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+DOCKER_DISTRO="Ubuntu-20.04"
+DOCKER_DIR=/mnt/wsl/shared-docker
+DOCKER_SOCK="$DOCKER_DIR/docker.sock"
+export DOCKER_HOST="unix://$DOCKER_SOCK"
+if [ ! -S "$DOCKER_SOCK" ]; then
+    mkdir -pm o=,ug=rwx "$DOCKER_DIR"
+    sudo chgrp docker "$DOCKER_DIR"
+    /mnt/c/Windows/System32/wsl.exe -d $DOCKER_DISTRO sh -c "nohup sudo -b dockerd < /dev/null > $DOCKER_DIR/dockerd.log 2>&1"
+fi
+

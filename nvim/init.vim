@@ -38,6 +38,8 @@ set wildignore+=**/coverage/*
 set wildignore+=**/node_modules/*
 set wildignore+=**/.git/*
 
+let mapleader  = " "
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'preservim/nerdtree'
@@ -48,14 +50,18 @@ Plug 'airblade/vim-gitgutter'
 "To undo and redo stuff
 Plug 'mbbill/undotree'
 
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+Plug 'windwp/nvim-ts-autotag'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'onsails/lspkind-nvim'
 
 Plug 'morhetz/gruvbox'
 
@@ -69,7 +75,9 @@ Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 colorscheme gruvbox
-let g:gruvbox_contrast_dark = 'medium'
+let g:gruvbox_contrast_dark = 'hard'
+
+
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -84,5 +92,18 @@ tnoremap <C-L> <C-\><C-N><C-W><C-L>
 
 inoremap <C-]> <C-X><C-]>
 
-let mapleader  = " "
+" Nerdtree
+nnoremap <leader>nf :NERDTreeFocus<CR>
+nnoremap <leader>n :NERDTree<CR>
+nnoremap <C-T> :NERDTreeToggle<CR>
+nnoremap <leader>ns :NERDTreeFind<CR>
+
+augroup TheOriginalStove
+    autocmd!
+    autocmd FileType yaml,yml,js,json,vue,css,scss setlocal ts=2 sts=2 sw=2 expandtab
+augroup END
+
+let g:NERDTreeSortHiddenFirst=1
+let g:NERDTreeShowHidden=1
 lua require("turts")
+
