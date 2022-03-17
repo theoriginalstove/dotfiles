@@ -38,8 +38,6 @@ set wildignore+=**/coverage/*
 set wildignore+=**/node_modules/*
 set wildignore+=**/.git/*
 
-let mapleader  = " "
-
 call plug#begin('~/.vim/plugged')
 
 Plug 'preservim/nerdtree'
@@ -65,8 +63,11 @@ Plug 'onsails/lspkind-nvim'
 
 Plug 'morhetz/gruvbox'
 
+Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
+Plug 'nvim-telescope/telescope-file-browser.nvim'
 
 " Airline - Economy class
 Plug 'vim-airline/vim-airline'
@@ -77,13 +78,6 @@ call plug#end()
 colorscheme gruvbox
 let g:gruvbox_contrast_dark = 'hard'
 
-
-
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
 "nvim terminal escape
 tnoremap <C-H> <C-\><C-N><C-W><C-H>
 tnoremap <C-J> <C-\><C-N><C-W><C-J>
@@ -93,10 +87,11 @@ tnoremap <C-L> <C-\><C-N><C-W><C-L>
 inoremap <C-]> <C-X><C-]>
 
 " Nerdtree
-nnoremap <leader>nf :NERDTreeFocus<CR>
-nnoremap <leader>n :NERDTree<CR>
-nnoremap <C-T> :NERDTreeToggle<CR>
-nnoremap <leader>ns :NERDTreeFind<CR>
+" nnoremap <leader>nf :NERDTreeFocus<CR>
+" nnoremap <leader>n :NERDTree<CR>
+" nnoremap <C-T> :NERDTreeToggle<CR>
+" nnoremap <leader>ns :NERDTreeFind<CR>
+
 
 augroup TheOriginalStove
     autocmd!

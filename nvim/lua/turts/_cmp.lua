@@ -49,11 +49,11 @@ cmp.setup.cmdline('/', {
 
 -- `:` cmdline setup
 cmp.setup.cmdline(':', {
-    sources = cmp.config.sources({
+    sources = {
         { name = 'path' }
     }, {
         { name = 'cmdline' }
-    })
+    }
 })
 
 
