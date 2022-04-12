@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 
-rm -rf ~/.config/nvim/
+rm -rf $HOME/.config/nvim/lua/turts
 
-mkdir -p ~/.config/nvim/plugin/lsp
-mkdir -p ~/.config/nvim/after/plugin/lsp
-mkdir -p ~/.config/nvim/lua 
-mkdir -p ~/.config/alacritty/
+#remake the dirs
+mkdir -p $HOME/.config/nvim/lua/turts
 
-# link wholesale
 for f in `find . -regex ".*\.vim$\|.*\.lua$" | sed 's|^./||'`; do
-    rm -rf ~/.config/nvim/$f
-    ln -sf ~/dotfiles/nvim/$f ~/.config/nvim/$f
+	echo "Removing: $f"
+	rm -rf $HOME/.config/$f
+	echo "Linking $f"
+	ln -s $HOME/dotfiles/nvim/$f $HOME/.config/nvim/$f
 done
-

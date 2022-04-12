@@ -103,6 +103,7 @@ alias vim="nvim"
 alias ll="ls -laF"
 alias spotify="flatpak run com.spotify.Client"
 
+
 # To use gpg
 export GPG_TTY=$(tty)
 gpgconf --launch gpg-agent
@@ -113,7 +114,12 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 
-
+# GO Env variables
+export GOROOT=/usr/local/go
+export GOPATH=$HOME
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN:$GOPATH/bin
+export PATH=$PATH:/usr/local/go/bin
 export PATH="$HOME/.poetry/bin:$PATH"
 export PATH=${PATH}:"${HOME}/.local/bin"
 fpath+=${ZDOTDIR:-~}/.zsh_functions
