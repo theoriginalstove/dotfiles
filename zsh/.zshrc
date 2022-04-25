@@ -2,13 +2,13 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/turts/.oh-my-zsh"
+export ZSH="/home/theoriginalstove/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="gruv_magic"
+ZSH_THEME="crunch"
 SOLARIZED_THEME="dark"
 
 # Set list of themes to pick from when loading at random
@@ -104,3 +104,17 @@ alias vim="nvim"
 alias spotify="flatpak run com.spotify.Client"
 alias tmux="TERM=xterm-256color tmux -2"
 alias ll="ls -laF --group-directories-first"
+
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/github_ed25519
+ssh-add ~/.ssh/admiral_ed25519
+clear
+
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export GOPRIVATE=gitlab.com/levenlabs
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
