@@ -104,3 +104,17 @@ alias vim="nvim"
 alias spotify="flatpak run com.spotify.Client"
 alias tmux="TERM=xterm-256color tmux -2"
 alias ll="ls -laF --group-directories-first"
+
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/github_ed25519
+ssh-add ~/.ssh/admiral_ed25519
+clear
+
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export GOPRIVATE=gitlab.com/levenlabs
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
