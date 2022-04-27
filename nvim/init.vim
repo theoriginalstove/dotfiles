@@ -99,7 +99,5 @@ augroup TheOriginalStove
     autocmd FileType yaml,yml,js,json,vue,css,scss setlocal ts=2 sts=2 sw=2 expandtab
 augroup END
 
-let g:NERDTreeSortHiddenFirst=1
-let g:NERDTreeShowHidden=1
 lua require("turts")
 

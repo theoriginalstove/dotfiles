@@ -11,5 +11,5 @@ echo "---" | tee -a /tmp/polybar.log /tmp/polybar2.log /tmp/polybar3.log
 #polybar mode --config=$HOME/.config/polybar/config.ini
 
 polybar main --config=$HOME/.config/polybar/config.ini 2>&1 | tee -a /tmp/polybar1.log & disown
-polybar bottom --config=$HOME/.config/polybar/config.ini 2>&1 | tee -a /tmp/polybar2.log & disown 
+#polybar bottom --config=$HOME/.config/polybar/config.ini 2>&1 | tee -a /tmp/polybar2.log & disown 
 

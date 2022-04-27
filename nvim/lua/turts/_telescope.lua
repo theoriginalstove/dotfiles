@@ -1,4 +1,6 @@
 local action_state = require('telescope.actions.state') -- runtime 
+local builtin = require('telescope.builtin')
+
 require('telescope').setup{
     defaults = {
         prompt_prefix = "🔍 ",

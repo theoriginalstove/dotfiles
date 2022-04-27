@@ -17,5 +17,7 @@ map('n', '<C-s>', '<C-w>H', options)
 map('n', '<C-c>', '<C-w>K', options)
 
 -- nvim terminal escape
-
+--
+-- Telescope remaps
 map('n', '<c-t>', ":Telescope file_browser hidden=true <cr>", options)
+map('n', '<c-f>', ":Telescope live_grep<cr>", options)
