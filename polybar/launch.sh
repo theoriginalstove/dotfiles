@@ -10,6 +10,9 @@ echo "---" | tee -a /tmp/polybar.log /tmp/polybar2.log /tmp/polybar3.log
 #polybar right --config=$HOME/.config/polybar/config.ini 2>&1 | tee -a /tmp/polybar3.log & disown 
 #polybar mode --config=$HOME/.config/polybar/config.ini
 
-polybar main --config=$HOME/.config/polybar/config.ini 2>&1 | tee -a /tmp/polybar1.log & disown
+for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+    MONITOR=$m polybar --reload main --config=$HOME/.config/polybar/config.ini &
+done
+
 #polybar bottom --config=$HOME/.config/polybar/config.ini 2>&1 | tee -a /tmp/polybar2.log & disown 
 

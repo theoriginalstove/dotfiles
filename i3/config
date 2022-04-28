@@ -193,13 +193,13 @@ bindsym $mod+r mode "resize"
 bindsym $mod+shift+x exec i3lock
 
 # Required to use the gaps in i3 gaps
-# for_window [class=".*"] border pixel 6 
-client.focused border pixel 6 background #d8a657  #d8a657 
-client.unfocused border pixel 0
+for_window [class=".*"] border pixel 5 background #1d2021 #1d2021
+client.focused border pixel 5 background #d8a657 #d8a657 
+client.unfocused border pixel 5 background #3c3836 #3c3836
 
 # Set the gaps
-gaps top 70
-gaps bottom 04
+gaps top 45
+gaps bottom 05
 gaps inner 10
 
 
