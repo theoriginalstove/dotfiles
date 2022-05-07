@@ -1,7 +1,0 @@
-[user]
-	email = steven_turturo@swifttrans.com-1 	name = Steven Turturo
-	signingkey = 2DB56FF258E21C8D
-[gpg]
-	program = /usr/bin/gpg
-[commit]
-	gpgsign = true
