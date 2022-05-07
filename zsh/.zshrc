@@ -71,7 +71,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker vi-mode golang dotnet emoji-clock zsh-navigation-tools helm kubectl timer zsh-interactive-cd safe-paste colored-man-pages zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git docker vi-mode golang dotnet emoji-clock zsh-navigation-tools kubectl timer zsh-interactive-cd safe-paste colored-man-pages ssh-agent zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -106,8 +106,6 @@ alias tmux="TERM=xterm-256color tmux -2"
 alias ll="ls -laF --group-directories-first"
 
 eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/github_ed25519
-ssh-add ~/.ssh/admiral_ed25519
 clear
 
 export PATH=$PATH:/usr/local/go/bin
@@ -122,3 +120,9 @@ export NVM_DIR="$HOME/.nvm"
 alias installs="cd ~/installs"
 alias dotfiles="cd ~/dotfiles"
 alias work="cd ~/work"
+alias readme="touch README.md"
+
+source ~/.zshrc-env
+
+# add Pulumi to the PATH
+export PATH=$PATH:$HOME/.pulumi/bin

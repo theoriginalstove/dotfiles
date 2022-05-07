@@ -63,22 +63,34 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'onsails/lspkind-nvim'
 
-Plug 'morhetz/gruvbox'
+Plug 'sainnhe/gruvbox-material'
 
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'nvim-telescope/telescope-file-browser.nvim'
+Plug 'folke/todo-comments.nvim'
+
+" git blame 
+Plug 'f-person/git-blame.nvim'
+
+"project workspace
+Plug 'ahmedkhalf/project.nvim'
 
 " Airline - Economy class
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" bufferline
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'akinsho/bufferline.nvim', {'tag':'v2.*'}
+
 call plug#end()
 
-colorscheme gruvbox
-let g:gruvbox_contrast_dark = 'hard'
+set background=dark
+let g:gruvbox_material_background = 'hard'
+colorscheme gruvbox-material
 
 "nvim terminal escape
 tnoremap <C-H> <C-\><C-N><C-W><C-H>

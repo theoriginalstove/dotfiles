@@ -204,8 +204,8 @@ gaps inner 10
 
 
 
-exec_always feh --bg-scale $HOME/dotfiles/wallpaper.jpeg
+exec_always feh --bg-scale $HOME/dotfiles/berries.jpg
 # exec_always feh --bg-scale $HOME/Pictures/wallpaper.jpg
 # exec_always feh --bg-center $HOME/Pictures/wallpaper.png
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always picom -b --experimental-backends
+exec_always picom -b -c --experimental-backends

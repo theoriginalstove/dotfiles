@@ -20,4 +20,17 @@ map('n', '<C-c>', '<C-w>K', options)
 --
 -- Telescope remaps
 map('n', '<c-t>', ":Telescope file_browser hidden=true <cr>", options)
+map('n', '<leader>ds', ":Telescope lsp_document_symbols<cr>", options)
 map('n', '<c-f>', ":Telescope live_grep<cr>", options)
+
+-- Todo Comments remaps
+map('n', '<leader>tdt', ':TodoTelescope<cr>', options)
+map('n', '<leader>tdl', ':TodoQuickFix<cr>', options)
+
+-- Project remaps
+map('n', '<leader>tf', '', options)
+map('n', '<leader>tb', '', options)
+map('n', '<leader>td', '', options)
+map('n', '<leader>ts', '', options)
+map('n', '<leader>tr', '', options)
+map('n', '<leader>tw', '', options)

@@ -37,9 +37,9 @@ from subprocess import call, DEVNULL
 
 SOCKDIR = os.environ.get("XDG_RUNTIME_DIR", "/var/tmp")
 SOCKFILE = os.path.join(SOCKDIR, "polypomo.sock")
-TOMATO = u"\U0001F345"  # Recommended font: Noto Emoji
-BREAK = u"\U0001F3D6"  # Recommended font: Noto Emoji
-PAUSE = u"\U000023F8"  # Recommended font: Siji
+TOMATO = ' '  
+BREAK = '鈴 '  
+PAUSE = ' '  
 
 
 class Exit(Exception):
@@ -328,7 +328,7 @@ def parse_args():
                         help="Default work timer time in seconds")
     parser.add_argument("--breaktime",
                         type=int,
-                        default=3 * 60,
+                        default=5 * 60,
                         help="Default break timer time in seconds")
     parser.set_defaults(func=action_display)
 

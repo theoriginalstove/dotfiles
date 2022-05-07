@@ -12,9 +12,11 @@ require('lspconfig').gopls.setup{
         vim.keymap.set("n", "<leader>dj", vim.diagnostic.goto_next, {buffer=0})
         vim.keymap.set("n", "<leader>dk", vim.diagnostic.goto_prev, {buffer=0})
         vim.keymap.set("n", "<leader>dl", "<cmd>Telescope diagnostics<cr>", {buffer=0})
+        vim.keymap.set("n", "<leader>ca", "<cmd>Telescope lsp_code_actions<cr>", {buffer=0})
+        vim.keymap.set("n", "<leader>lr", "<cmd>Telescope lsp_references<cr>", {buffer=0})
         vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, {buffer=0})
-        vim.cmd('au InsertLeave *.go lua goimports(1000)')
-        vim.cmd('au InsertLeave *.go lua vim.lsp.buf.formatting()')
+        vim.cmd('au BufWritePre *.go lua goimports(1000)')
+        vim.cmd('au BufWritePre *.go lua vim.lsp.buf.formatting()')
     end
 }
 
