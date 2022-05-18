@@ -18,11 +18,11 @@ end
 require'lspconfig'.volar.setup{
     init_options = {
         typescript = {
-            serverPath = '/home/turts/.config/yarn/global/node_modules/typescript/lib/tsserverlibrary.js'
+            serverPath = "~/.config/yarn/global/node_modules/typescript/lib/tsserverlibrary.js"
         }
     },
     capabilities = capabilities,
-    filetypes = {'typescript','javascript','javascriptreact','vue','json'},
+    filetypes = {'vue'},
     on_attach = function()
         vim.keymap.set("n", "K", vim.lsp.buf.hover, {buffer=0})
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, {buffer=0})

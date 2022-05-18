@@ -1,8 +1,10 @@
 local u = require("turts.utils")
+local lspconfig = require("lspconfig")
+local configs = require("lspconfig/configs")
 -- install gopls with `go install golang.org/x/tools/gopls@latest`
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-require('lspconfig').gopls.setup{
+lspconfig.gopls.setup{
     capabilities = capabilities,
     on_attach = function()
         vim.keymap.set("n", "K", vim.lsp.buf.hover, {buffer=0})
@@ -17,7 +19,15 @@ require('lspconfig').gopls.setup{
         vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, {buffer=0})
         vim.cmd('au BufWritePre *.go lua goimports(1000)')
         vim.cmd('au BufWritePre *.go lua vim.lsp.buf.formatting()')
-    end
+    end,
+    settings = {
+        gopls = {
+            analyses = {
+                unusedparams = true,
+            },
+            staticcheck = true,
+        },
+    },
 }
 
 function goimports(timeoutms)
@@ -41,3 +51,20 @@ function goimports(timeoutms)
         vim.lsp.buf.execute_command(action)
     end
 end
+
+if not configs.golang_lint_ls then
+    configs.golangci_lint_ls = {
+        default_config = {
+            cmd = {'golangci-lint-langserver'},
+            root_dir = lspconfig.util.root_pattern('.git','go.mod'),
+            init_options = {
+                command = {"golangci-lint","run","--out-format","json"}
+            }
+        }
+    }
+end
+lspconfig.golangci_lint_ls.setup {
+    filetypes = {'go','gomod'}
+}
+
+

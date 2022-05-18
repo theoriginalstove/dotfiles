@@ -8,7 +8,8 @@ export ZSH="/home/theoriginalstove/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="crunch"
+# ZSH_THEME="crunch"
+ZSH_THEME="steeef"
 SOLARIZED_THEME="dark"
 
 # Set list of themes to pick from when loading at random
@@ -61,19 +62,21 @@ COMPLETION_WAITING_DOTS="true"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="yyyy-mm-dd"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+# For ZSH_AUTOSUGGEST
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker vi-mode golang dotnet emoji-clock zsh-navigation-tools kubectl timer zsh-interactive-cd safe-paste colored-man-pages ssh-agent zsh-autosuggestions zsh-syntax-highlighting)
-
+plugins=(git docker vi-mode zsh-navigation-tools kubectl timer zsh-interactive-cd safe-paste colored-man-pages ssh-agent fzf-tab zsh-syntax-highlighting)
+zstyle :omz:plugins:ssh-agent agent-forwarding yes
+zstyle :omz:plugins:ssh-agent identities admiral_ed25519 github_id_ed25519
+# source oh-my-zsh
 source $ZSH/oh-my-zsh.sh
+
 
 # User configuration
 
@@ -98,31 +101,27 @@ fi
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
+ alias zshconfig="nvim ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+source ~/.zshrc-env
 alias vim="nvim"
 alias spotify="flatpak run com.spotify.Client"
 alias tmux="TERM=xterm-256color tmux -2"
 alias ll="ls -laF --group-directories-first"
-
-eval "$(ssh-agent -s)"
-clear
-
-export PATH=$PATH:/usr/local/go/bin
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-export GOPRIVATE=gitlab.com/levenlabs
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 alias installs="cd ~/installs"
 alias dotfiles="cd ~/dotfiles"
 alias work="cd ~/work"
 alias readme="touch README.md"
 
-source ~/.zshrc-env
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # add Pulumi to the PATH
 export PATH=$PATH:$HOME/.pulumi/bin
+
+
+alias luamake=/home/theoriginalstove/installs/lua-language-server/3rd/luamake/luamake
