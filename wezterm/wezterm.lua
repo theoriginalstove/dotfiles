@@ -2,6 +2,7 @@ local wezterm = require('wezterm')
 
 return {
     font = wezterm.font("JetBrainsMono Nerd Font"),
+    font_size = 13,
     warn_about_missing_glyphs=false,
     color_scheme = "gruvbox_material_dark_hard",
     color_schemes = {

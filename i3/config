@@ -47,7 +47,7 @@ bindsym $mod+Return exec wezterm
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+d exec rofi -show run
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -193,18 +193,18 @@ bindsym $mod+r mode "resize"
 bindsym $mod+shift+x exec i3lock
 
 # Required to use the gaps in i3 gaps
-for_window [class=".*"] border pixel 5 background #1d2021 #1d2021
+for_window [class=".*"] border pixel 2 background #1d2021 #1d2021
 client.focused border pixel 5 background #d8a657 #d8a657 
 client.unfocused border pixel 5 background #3c3836 #3c3836
 
 # Set the gaps
-gaps top 45
-gaps bottom 05
+gaps top 05
+gaps bottom 45
 gaps inner 10
 
 
 
-exec_always feh --bg-scale $HOME/dotfiles/berries.jpg
+exec_always feh --bg-scale $HOME/dotfiles/wallpapers/amongus.jpg
 # exec_always feh --bg-scale $HOME/Pictures/wallpaper.jpg
 # exec_always feh --bg-center $HOME/Pictures/wallpaper.png
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
