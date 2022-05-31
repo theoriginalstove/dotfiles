@@ -34,3 +34,18 @@ map('n', '<leader>td', '', options)
 map('n', '<leader>ts', '', options)
 map('n', '<leader>tr', '', options)
 map('n', '<leader>tw', '', options)
+
+-- Debugger remaps 
+map('n', '<leader>dbp', '', options) -- add breakpoint
+map('n', '<leader>dbc', ':Telescope dap commands<cr>', options) -- telescope commands
+map('n', '<leader>dbb', ':Telescope dap list_breakpoint<cr>', options) -- telescope commands
+
+map('n','<silent> <F5> <Cmd>lua require"dap".continue()<CR>',options)
+map('n','<silent> <F10> <Cmd>lua require"dap".step_over()<CR>',options)
+map('n','<silent> <F11> <Cmd>lua require"dap".step_into()<CR>',options)
+map('n','<silent> <F12> <Cmd>lua require"dap".step_out()<CR>',options)
+map('n','<silent> <Leader>b <Cmd>lua require"dap".toggle_breakpoint()<CR>',options)
+map('n','<silent> <Leader>B <Cmd>lua require"dap".set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>',options)
+map('n','<silent> <Leader>lp <Cmd>lua require"dap".set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>',options)
+map('n','<silent> <Leader>dr <Cmd>lua require"dap".repl.open()<CR>',options)
+map('n','<silent> <Leader>dl <Cmd>lua require"dap".run_last()<CR>',options)

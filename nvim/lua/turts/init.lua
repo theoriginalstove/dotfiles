@@ -1,6 +1,8 @@
 require("turts._cmp")
+require("turts._debugger")
 require("turts._dockerlsp")
 require("turts._golsp")
+require("turts._lua_lsp")
 require("turts._omnisharp")
 require("turts._project")
 require("turts._pythonlsp")

@@ -70,6 +70,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'nvim-telescope/telescope-file-browser.nvim'
+Plug 'nvim-telescope/telescope-dap.nvim'
 Plug 'folke/todo-comments.nvim'
 
 " git blame 
@@ -85,6 +86,10 @@ Plug 'vim-airline/vim-airline-themes'
 " bufferline
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'akinsho/bufferline.nvim', {'tag':'v2.*'}
+
+" Debugger
+Plug 'mfussenegger/nvim-dap'
+Plug 'leoluz/nvim-dap-go'
 
 call plug#end()
 
