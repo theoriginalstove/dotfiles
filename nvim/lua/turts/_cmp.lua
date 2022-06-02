@@ -34,9 +34,13 @@ local icons = {
 }
 
 
-vim.opt.completeopt={'menu','menuone','noselect'}
+vim.opt.completeopt={'menu','menuone','noselect', 'preview'}
 
 cmp.setup({
+    window = {
+        documentation = cmp.config.window.bordered(),
+        completion = cmp.config.window.bordered(),
+    },
     experimental = {
         ghost_text = true
     },
@@ -45,7 +49,7 @@ cmp.setup({
             require'luasnip'.lsp_expand(args.body)
         end
     },
-    mapping = {
+    mapping = cmp.mapping.preset.insert{
         ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
         ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
         ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c'}),
@@ -55,6 +59,7 @@ cmp.setup({
             c = cmp.mapping.close(),
         }),
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
+--        ['<Up>'] = cmp.mapping.scroll_docs
     },
     formatting = {
         fields = { "kind", "abbr", "menu" },
@@ -79,11 +84,11 @@ cmp.setup({
 })
 
 -- `/` cmdline setup
-cmp.setup.cmdline('/', {
-    sources = {
-        { name = 'buffer' }
-    }
-})
+--cmp.setup.cmdline('/', {
+--    sources = {
+--        { name = 'buffer' }
+--    }
+--})
 
 
 require('cmp_luasnip')

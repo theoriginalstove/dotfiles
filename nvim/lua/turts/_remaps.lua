@@ -5,8 +5,12 @@ map('n', '<Space>', '', {})
 vim.g.mapleader = ' ' --vim.g sets global variables
 
 
+
 -- set noremap options
 options = {noremap=true}
+
+-- map W to w
+map('c', 'W', 'w',options)
 
 -- window movement maps
 map('n', '<c-j>', '<c-w><c-j>', options)
@@ -40,12 +44,12 @@ map('n', '<leader>dbp', '', options) -- add breakpoint
 map('n', '<leader>dbc', ':Telescope dap commands<cr>', options) -- telescope commands
 map('n', '<leader>dbb', ':Telescope dap list_breakpoint<cr>', options) -- telescope commands
 
-map('n','<silent> <F5> <Cmd>lua require"dap".continue()<CR>',options)
-map('n','<silent> <F10> <Cmd>lua require"dap".step_over()<CR>',options)
-map('n','<silent> <F11> <Cmd>lua require"dap".step_into()<CR>',options)
-map('n','<silent> <F12> <Cmd>lua require"dap".step_out()<CR>',options)
-map('n','<silent> <Leader>b <Cmd>lua require"dap".toggle_breakpoint()<CR>',options)
-map('n','<silent> <Leader>B <Cmd>lua require"dap".set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>',options)
-map('n','<silent> <Leader>lp <Cmd>lua require"dap".set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>',options)
-map('n','<silent> <Leader>dr <Cmd>lua require"dap".repl.open()<CR>',options)
-map('n','<silent> <Leader>dl <Cmd>lua require"dap".run_last()<CR>',options)
+map('n','<F5>', '<Cmd>lua require"dap".continue()<CR>',options)
+map('n','<F10>', '<Cmd>lua require"dap".step_over()<CR>',options)
+map('n','<F11>', '<Cmd>lua require"dap".step_into()<CR>',options)
+map('n','<F12>', '<Cmd>lua require"dap".step_out()<CR>',options)
+map('n','<Leader>b','<Cmd>lua require"dap".toggle_breakpoint()<CR>',options)
+map('n','<Leader>B','<Cmd>lua require"dap".set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>',options)
+map('n','<Leader>lp',' <Cmd>lua require"dap".set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>',options)
+map('n','<Leader>dr',' <Cmd>lua require"dap".repl.open()<CR>',options)
+map('n','<Leader>dl',' <Cmd>lua require"dap".run_last()<CR>',options)
