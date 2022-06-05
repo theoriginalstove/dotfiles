@@ -73,7 +73,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git docker vi-mode zsh-navigation-tools kubectl timer zsh-interactive-cd safe-paste colored-man-pages ssh-agent fzf-tab zsh-syntax-highlighting)
 zstyle :omz:plugins:ssh-agent agent-forwarding yes
-zstyle :omz:plugins:ssh-agent identities admiral_ed25519 github_id_ed25519
+zstyle :omz:plugins:ssh-agent identities admiral_ed25519 github_ed25519
 # source oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 

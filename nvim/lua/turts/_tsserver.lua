@@ -2,12 +2,11 @@ local u = require("turts.utils")
 local lspconfig = require("lspconfig")
 
 local ok, cap = pcall(require, "cmp_nvm_lsp")
-
-if not ok then 
+if not ok then
     return
 end
 
-capabilities = cap.update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = cap.update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 lspconfig.tsserver.setup{
     capabilities = capabilities,
@@ -24,3 +23,5 @@ lspconfig.tsserver.setup{
         vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, {buffer=0})
     end,
 }
+
+
