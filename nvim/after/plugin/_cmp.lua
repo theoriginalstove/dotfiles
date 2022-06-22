@@ -120,8 +120,7 @@ cmp.setup({
 local function config(_config)
     return vim.tbl_deep_extend("force", {
         capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-        on_attach = function()
-            local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+        on_attach = function(client, bufnr)
             local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
             vim.keymap.set("n", "K", vim.lsp.buf.hover, {buffer=0})
@@ -149,6 +148,27 @@ local function config(_config)
             buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
         end,
     }, _config or {})
+end
+
+function goimports(timeoutms)
+    local context = {source={organizeImports=true}}
+    vim.validate {context={context, "t", true}}
+
+    local params = vim.lsp.util.make_range_params()
+    params.context = context
+    local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, timeoutms)
+    if not result or next(result) == nil then return end
+    local actions = result[1].result
+    if not actions then return end
+    local action = actions[1]
+
+    if action.edit or type(action.command) == "table" then
+        if action.edit then
+            vim.lsp.util.apply_workspace_edit(action.edit, "")
+        end
+    else
+        vim.lsp.buf.execute_command(action)
+    end
 end
 
 require("lspconfig").tsserver.setup(config())
