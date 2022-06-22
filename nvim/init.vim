@@ -92,6 +92,15 @@ Plug 'akinsho/bufferline.nvim', {'tag':'v2.*'}
 Plug 'mfussenegger/nvim-dap'
 Plug 'leoluz/nvim-dap-go'
 
+"Typescript
+Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'jose-elias-alvarez/typescript.nvim'
+
+" Tabnine
+" Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
+
+Plug 'simrat39/symbols-outline.nvim'
+
 call plug#end()
 
 set background=dark
@@ -116,6 +125,4 @@ augroup TheOriginalStove
     autocmd!
     autocmd FileType yaml,yml,js,json,vue,css,scss setlocal ts=2 sts=2 sw=2 expandtab
 augroup END
-
-lua require("turts")
 

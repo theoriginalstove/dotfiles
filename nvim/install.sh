@@ -3,8 +3,8 @@
 rm -rf ~/.config/nvim/
 
 mkdir -p ~/.config/nvim/plugin/lsp
+mkdir -p ~/.config/nvim/lua/theoriginalstove
 mkdir -p ~/.config/nvim/after/plugin/lsp
-mkdir -p ~/.config/nvim/lua 
 mkdir -p ~/.config/alacritty/
 
 rm -rf $HOME/.config/nvim/lua/turts

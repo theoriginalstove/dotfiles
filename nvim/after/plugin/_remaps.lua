@@ -9,9 +9,6 @@ vim.g.mapleader = ' ' --vim.g sets global variables
 -- set noremap options
 options = {noremap=true}
 
--- map W to w
-map('c', 'W', 'w',options)
-
 -- window movement maps
 map('n', '<c-j>', '<c-w><c-j>', options)
 map('n', '<C-K>', '<C-W><C-K>', options)

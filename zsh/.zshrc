@@ -127,4 +127,5 @@ export PATH=$PATH:$HOME/.pulumi/bin
 
 alias luamake=/home/theoriginalstove/installs/lua-language-server/3rd/luamake/luamake
 alias getGOOD="clear; echo 'GET SHREKLHEIMD'"
-
+export DENO_INSTALL="$HOME/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
