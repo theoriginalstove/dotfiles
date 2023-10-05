@@ -1,5 +1,5 @@
 local pid = vim.fn.getpid()
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local omnisharp_bin = "/home/turts/lsp_servers/omnisharp/run"
 
 require'lspconfig'.omnisharp.setup{

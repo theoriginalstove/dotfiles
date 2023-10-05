@@ -13,14 +13,16 @@ require('telescope').setup{
         }
     },
     extensions = {
-        fzy_native = {
-            override_generic_sorter = false,
+        fzf = {
+            fuzzy = true,
+            override_generic_sorter = true,
             override_file_sorter = true,
+            case_mode = "smart_case",
         },
     },
 }
 
 require("telescope").load_extension("file_browser")
-require("telescope").load_extension("fzy_native")
+require("telescope").load_extension("fzf")
 require("telescope").load_extension("projects")
 require("telescope").load_extension("dap")

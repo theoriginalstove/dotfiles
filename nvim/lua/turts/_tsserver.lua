@@ -6,13 +6,20 @@ if not ok then
     return
 end
 
-local capabilities = cap.update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = cap.default_capabilities()
 
-lspconfig.tsserver.setup{
-    capabilities = capabilities,
-    filetypes = {"typescript","typescriptreact","typescript.tsx","javascript","javascript.jsx","javascriptreact","json"},
-    root_dir = root_pattern("package.json","tsconfig.json","jsconfig.json",".git"),
-    on_attach = function()
+local buf_map = function(bufnr, mode, lhs, rhs, opts)
+    vim.api.nvim_buf_set_keymap(bufnr,mode, lhs, rhs, opts or {
+        silent = true,
+    })
+end
+
+local on_attach = function(client, bufnr)
+        client.resolved_capabilities.document_formatting = false
+        client.resolved_capabilities.document_range_formatting = false
+
+        buf_map(bufnr, "n", "gs", ":TSLspOrganize<CR>")
+
         vim.keymap.set("n", "K", vim.lsp.buf.hover, {buffer=0})
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, {buffer=0})
         vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, {buffer=0})
@@ -20,8 +27,17 @@ lspconfig.tsserver.setup{
         vim.keymap.set("n", "<leader>dj", vim.diagnostic.goto_next, {buffer=0})
         vim.keymap.set("n", "<leader>dk", vim.diagnostic.goto_prev, {buffer=0})
         vim.keymap.set("n", "<leader>dl", "<cmd>Telescope diagnostics<cr>", {buffer=0})
+        vim.keymap.set("n", "<leader>ca", "<cmd>Telescope lsp_code_actions<cr>", {buffer=0})
+        vim.keymap.set("n", "<leader>lr", "<cmd>Telescope lsp_references<cr>", {buffer=0})
         vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, {buffer=0})
-    end,
+end
+
+lspconfig.tsserver.setup{
+    capabilities = capabilities,
+    on_attach = on_attach
 }
 
-
+lspconfig.svelte.setup{
+    capabilities = capabilities,
+    on_attach = on_attach
+}

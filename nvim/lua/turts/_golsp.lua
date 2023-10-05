@@ -2,8 +2,9 @@ local u = require("turts.utils")
 local lspconfig = require("lspconfig")
 local configs = require("lspconfig/configs")
 -- install gopls with `go install golang.org/x/tools/gopls@latest
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 
 local on_attach = function(client, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -20,7 +21,7 @@ local on_attach = function(client, bufnr)
     vim.keymap.set("n", "<leader>lr", "<cmd>Telescope lsp_references<cr>", {buffer=0})
     vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, {buffer=0})
     vim.cmd('au BufWritePre *.go lua goimports(1000)')
-    vim.cmd('au BufWritePre *.go lua vim.lsp.buf.formatting()')
+    vim.cmd('au BufWritePre *.go lua vim.lsp.buf.format({ async = true })')
 
     buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 end
@@ -30,6 +31,7 @@ lspconfig.gopls.setup{
     on_attach = on_attach,
     settings = {
         gopls = {
+            gofumpt = true,
             experimentalPostfixCompletions = true,
             analyses = {
                 unusedparams = true,
@@ -49,7 +51,6 @@ function goimports(timeoutms)
 
     local params = vim.lsp.util.make_range_params()
     params.context = context
-    
     local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, timeoutms)
     if not result or next(result) == nil then return end
     local actions = result[1].result

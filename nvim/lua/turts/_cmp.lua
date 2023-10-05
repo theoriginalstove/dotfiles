@@ -5,6 +5,14 @@ if not ok then
     return
 end
 
+local source_maps = {
+    buffer = "[buffer]",
+    nvim_lsp = "[lsp]",
+    nvim_lua = "[lua]",
+    cmp_tabnine = "[tab9]",
+    path = "[path]",
+}
+
 local icons = {
     Text = "",
     Method = "",
@@ -63,14 +71,25 @@ cmp.setup({
     },
     formatting = {
         fields = { "kind", "abbr", "menu" },
-        format = function(_, vim_item)
-            vim_item.menu = vim_item.kind
+        mode = "symbol_text",
+        maxwidth = 50,
+        before = function(entry, vim_item)
             vim_item.kind = icons[vim_item.kind]
 
+            local menu = source_maps[entry.source.name]
+            if entry.source.name == "cmp_tabnine" then
+                if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
+                    menu = entry.completion_item.data.detail .. " " .. menu
+                end
+                vim_item.kind =  "ﮧ"
+            end
+
+            vim_item.menu = menu
             return vim_item
         end,
     },
     sources = cmp.config.sources({
+        { name = 'cmp_tabnine' },
         { name = 'nvim_lua' },
 
         { name = 'nvim_lsp_signature_help' },

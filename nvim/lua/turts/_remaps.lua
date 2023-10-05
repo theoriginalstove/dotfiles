@@ -7,10 +7,7 @@ vim.g.mapleader = ' ' --vim.g sets global variables
 
 
 -- set noremap options
-options = {noremap=true}
-
--- map W to w
-map('c', 'W', 'w',options)
+local options = {noremap=true}
 
 -- window movement maps
 map('n', '<c-j>', '<c-w><c-j>', options)
@@ -53,3 +50,6 @@ map('n','<Leader>B','<Cmd>lua require"dap".set_breakpoint(vim.fn.input("Breakpoi
 map('n','<Leader>lp',' <Cmd>lua require"dap".set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>',options)
 map('n','<Leader>dr',' <Cmd>lua require"dap".repl.open()<CR>',options)
 map('n','<Leader>dl',' <Cmd>lua require"dap".run_last()<CR>',options)
+
+-- Neotest remaps
+map('n', '<leader>nts', '<Cmd>lua require"neotest".summary.toggle()<CR>', options)
