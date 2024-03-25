@@ -115,6 +115,8 @@ Plug 'windwp/nvim-ts-autotag'
 "tree sitter for just files
 Plug 'IndianBoy42/tree-sitter-just'
 
+Plug 'nvim-neorg/neorg' | Plug 'nvim-lua/plenary.nvim'
+
 call plug#end()
 
 set background=dark

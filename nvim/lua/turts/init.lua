@@ -22,6 +22,7 @@ require("turts._treeseeter")
 require("turts._templ")
 require("turts._volar")
 require("turts._yamlls")
+require("turts._neorg")
 
 
 require("lualine").setup{
