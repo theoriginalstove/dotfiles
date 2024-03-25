@@ -26,6 +26,8 @@ set encoding=UTF-8
 set splitright
 set splitbelow
 set colorcolumn=0
+set list
+set listchars=trail:·,precedes:«,extends:»,tab:▸▸
 
 highlight ColorColumn ctermbg=0 guibg=yellow
 " Give more space for displaying messages.
@@ -40,7 +42,6 @@ set wildignore+=**/.git/*
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'airblade/vim-gitgutter'
@@ -49,6 +50,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'mbbill/undotree'
 
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+Plug 'nvim-treesitter/nvim-treesitter-refactor' 
 Plug 'windwp/nvim-ts-autotag'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -65,14 +67,20 @@ Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'onsails/lspkind-nvim'
 
 Plug 'sainnhe/gruvbox-material'
+Plug 'sainnhe/everforest'
+Plug 'morhetz/gruvbox'
 
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-fzy-native.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'nvim-telescope/telescope-dap.nvim'
 Plug 'folke/todo-comments.nvim'
+
+" Typescript
+Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 
 " git blame 
 Plug 'f-person/git-blame.nvim'
@@ -80,11 +88,8 @@ Plug 'f-person/git-blame.nvim'
 "project workspace
 Plug 'ahmedkhalf/project.nvim'
 
-" Airline - Economy class
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
 " bufferline
+Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'akinsho/bufferline.nvim', {'tag':'v2.*'}
 
@@ -92,19 +97,28 @@ Plug 'akinsho/bufferline.nvim', {'tag':'v2.*'}
 Plug 'mfussenegger/nvim-dap'
 Plug 'leoluz/nvim-dap-go'
 
-"Typescript
-Plug 'jose-elias-alvarez/null-ls.nvim'
-Plug 'jose-elias-alvarez/typescript.nvim'
-
 " Tabnine
-" Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
+Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 
-Plug 'simrat39/symbols-outline.nvim'
+" Test framework
+Plug 'antoinemadec/FixCursorHold.nvim'
+Plug 'nvim-neotest/neotest'
+Plug 'nvim-neotest/neotest-go'
+
+" editorconfig
+Plug 'gpanders/editorconfig.nvim'
+
+"auto tag and autopairs
+Plug 'windwp/nvim-autopairs'
+Plug 'windwp/nvim-ts-autotag'
+
+"tree sitter for just files
+Plug 'IndianBoy42/tree-sitter-just'
 
 call plug#end()
 
 set background=dark
-let g:gruvbox_material_background = 'hard'
+let g:gruvbox_background = 'hard'
 colorscheme gruvbox-material
 
 "nvim terminal escape
@@ -120,9 +134,7 @@ inoremap <C-]> <C-X><C-]>
 " nnoremap <leader>n :NERDTree<CR>
 " nnoremap <C-T> :NERDTreeToggle<CR>
 " nnoremap <leader>ns :NERDTreeFind<CR>
+lua require("turts")
 
-augroup TheOriginalStove
-    autocmd!
-    autocmd FileType yaml,yml,js,json,vue,css,scss setlocal ts=2 sts=2 sw=2 expandtab
-augroup END
+
 
