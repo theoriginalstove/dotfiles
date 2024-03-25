@@ -73,7 +73,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git docker vi-mode zsh-navigation-tools kubectl timer zsh-interactive-cd safe-paste colored-man-pages ssh-agent fzf-tab zsh-syntax-highlighting)
 zstyle :omz:plugins:ssh-agent agent-forwarding yes
-zstyle :omz:plugins:ssh-agent identities admiral_ed25519 github_id_ed25519
+zstyle :omz:plugins:ssh-agent identities id_ed25519 github_id_ed25519 work_ed25519
 # source oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
@@ -103,7 +103,6 @@ fi
 # Example aliases
  alias zshconfig="nvim ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source ~/.zshrc-env
 alias vim="nvim"
 alias spotify="flatpak run com.spotify.Client"
 alias tmux="TERM=xterm-256color tmux -2"
@@ -123,9 +122,16 @@ export NVM_DIR="$HOME/.nvm"
 
 # add Pulumi to the PATH
 export PATH=$PATH:$HOME/.pulumi/bin
-
-
+alias backend="cd ~/work/backend"
+alias frontend="cd ~/work/frontend"
+alias infra="cd ~/work/infra"
 alias luamake=/home/theoriginalstove/installs/lua-language-server/3rd/luamake/luamake
 alias getGOOD="clear; echo 'GET SHREKLHEIMD'"
 export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
+export GOPRIVATE="gitlab.com/avocagrow,github.com/RunCanopy,github.com/avocagrow"
+export GITLAB_TOKEN=glpat-4NQs8PXegxjeiMWEGTc8
+export NPM_TOKEN=2435F3B1-C064-461F-91CE-04F6F6E46D09
+export GITLAB_TUI_TOKEN=glpat-qKHp5vW-sko3rDieXutx
+
+nvm use --lts

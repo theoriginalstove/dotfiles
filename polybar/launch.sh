@@ -10,7 +10,7 @@ killall -q polybar
 #polybar right --config=$HOME/.config/polybar/config.ini 2>&1 | tee -a /tmp/polybar3.log & disown 
 #polybar mode --config=$HOME/.config/polybar/config.ini
 
-for m in $(xrandr --query | grep "DisplayPort-0 connected" | cut -d" " -f1); do
+for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
     MONITOR=$m polybar --reload main --config=$HOME/.config/polybar/config.ini &
 done
 
