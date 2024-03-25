@@ -130,8 +130,5 @@ alias getGOOD="clear; echo 'GET SHREKLHEIMD'"
 export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 export GOPRIVATE="gitlab.com/avocagrow,github.com/RunCanopy,github.com/avocagrow"
-export GITLAB_TOKEN=glpat-4NQs8PXegxjeiMWEGTc8
-export NPM_TOKEN=2435F3B1-C064-461F-91CE-04F6F6E46D09
-export GITLAB_TUI_TOKEN=glpat-qKHp5vW-sko3rDieXutx
 
 nvm use --lts
