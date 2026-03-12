@@ -1,0 +1,20 @@
+#!/bin/sh
+# Swap gruvbox theme based on time of day (7am-7pm = light)
+hour=$(date +%H)
+
+if [ "$hour" -ge 7 ] && [ "$hour" -lt 19 ]; then
+    variant="light"
+else
+    variant="dark"
+fi
+
+# Zellij
+ZELLIJ_CONFIG="$HOME/.config/zellij/config.kdl"
+sed -i "s/^theme \"gruvbox-.*\"/theme \"gruvbox-$variant\"/" "$ZELLIJ_CONFIG"
+
+# Waybar - swap style.css with the correct variant
+WAYBAR_DIR="$HOME/.config/waybar"
+cp "$WAYBAR_DIR/style-$variant.css" "$WAYBAR_DIR/style.css"
+
+# Reload waybar to pick up new styles
+pkill -SIGUSR2 waybar 2>/dev/null

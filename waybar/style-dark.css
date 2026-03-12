@@ -1,0 +1,87 @@
+/* Gruvbox Material Dark */
+@define-color fg #D4BE98;
+@define-color bg #1D2021;
+@define-color bg1 #282828;
+@define-color bg2 #3C3836;
+@define-color red #EA6962;
+@define-color green #A9B665;
+@define-color yellow #D8A657;
+@define-color blue #7DAEA3;
+@define-color magenta #D3869B;
+@define-color cyan #89B482;
+@define-color orange #E78A4E;
+@define-color gray #928374;
+
+/* font */
+* {
+    font-family: "JetBrainsMono Nerd Font Mono";
+    font-size: 1rem;
+}
+
+window#waybar {
+    background-color: shade(@bg, 0.85);
+    border: 2px solid alpha(@bg1, 0.3);
+    margin: 2px 5px 2px 5px;
+}
+
+#clock {
+    color: @yellow;
+    border-radius: 1rem;
+    padding: 0 1rem 0 1rem;
+    margin: 5px;
+    background-color: shade(@bg2, 0.9);
+}
+
+#workspaces {
+    border-radius: 1rem;
+    margin: 5px;
+    background-color: @bg1;
+    margin-left: 1rem;
+}
+
+#workspaces button.focused {
+    color: @orange;
+    font-weight: bold;
+}
+
+#network {
+    margin: 5px;
+    background-color: @green;
+    border-radius: 1rem;
+    padding: 0 1rem 0 1rem;
+    color: @bg;
+}
+
+#cpu {
+    margin: 5px;
+    border-radius: 1rem;
+    padding: 0 1rem 0 1rem;
+    background-color: @blue;
+    color: @bg;
+}
+
+#memory {
+    margin: 5px;
+    border-radius: 1rem;
+    padding: 0 1rem 0 1rem;
+    background-color: @magenta;
+    color: @bg;
+}
+
+#battery {
+    margin: 5px;
+    border-radius: 1rem;
+    padding: 0 1rem 0 1rem;
+    background-color: @cyan;
+    color: @bg;
+}
+
+#battery.warning {
+    background-color: @yellow;
+    color: @bg;
+}
+
+#battery.critical {
+    background-color: @red;
+    color: @bg;
+}
